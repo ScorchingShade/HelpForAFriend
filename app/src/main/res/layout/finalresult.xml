@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:id="@+id/superDialog">
 
+    <!--so this layout is created to display an alert dialog box which is nothing but a popup on main screen-->
     <TextView
         android:id="@+id/last"
         android:layout_width="match_parent"

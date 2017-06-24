@@ -75,12 +75,17 @@ public class Round2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(totalScore1()>totalScore2()){
+
+                    //This is interesting, we use AlertBuilder to display popup messages on screen
                     AlertDialog.Builder mBuilder =new AlertDialog.Builder(Round2.this);
+
+                   //The View keyword generates an activity over another here and inflate keyword activates our finalresult activity
                     View mView=getLayoutInflater().inflate(R.layout.finalresult,null);
 
 
                     last=(TextView)mView.findViewById(R.id.last);
 
+                    //This method adds our final score and shows winner in the popup dialog
                     updateTextview(last,totalScore1());
 
                     mBuilder.setView(mView);
@@ -222,7 +227,7 @@ public class Round2 extends AppCompatActivity {
 
 
     int totalScore1(){
-
+        //To get back the extra info we sent from Index_Activity we use the following method
         Intent intent=getIntent();
 
         int x=intent.getIntExtra("Score1",0);
@@ -243,3 +248,5 @@ public class Round2 extends AppCompatActivity {
     }
 
 }
+//P.S Honey it may look a bit complicated at first but is just simple java , practice more and you will get better
+//For starters create the 3rd round from this yourself!

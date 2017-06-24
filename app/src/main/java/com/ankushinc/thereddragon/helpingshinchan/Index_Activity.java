@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class Index_Activity extends AppCompatActivity {
-    //Okay so our first step will be to intialise all the objects that we have like buttons in this case
+    //Okay so our first step will be to intialise all the objects that we have like buttons and variables in this case
     Button onept;
     Button twoPt;
     Button threePt;
@@ -58,8 +58,11 @@ public class Index_Activity extends AppCompatActivity {
 
 
 
+        //this method will be called every time we click any point for any player
         updateonclick();
 
+        //The onclicklistener is an Interface which allows us to modify what happens after we click a button
+        //Here I use an annonymous inner class to provide its body
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +78,8 @@ public class Index_Activity extends AppCompatActivity {
                 //intents are used to travel from one activity to the other,below is the shortest method for that
                updateonclick();
                 Intent intent=new Intent(Index_Activity.this,Round2.class);
+
+                //we want our current score to go to next activity , we can do that using putExtra which sends extra data to next activity
                 intent.putExtra("Score1",scoreP1index);
                 intent.putExtra("Score2",scoreP2index);
                 startActivity(intent);
@@ -95,6 +100,7 @@ public class Index_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addScore(P1one);
+                //Toasts are simple informative messages which help us know what happened
                 Toast.makeText(getApplicationContext(),"1 point",Toast.LENGTH_SHORT).show();
             }
         });
@@ -160,7 +166,7 @@ public class Index_Activity extends AppCompatActivity {
     }
 
 
-
+//we are adding scores here, for simplicity I seperated the player1 and player 2 methods
     void addScore(int score){
 
         if(score==1){
